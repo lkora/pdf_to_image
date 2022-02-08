@@ -2,8 +2,6 @@ import argparse
 from os import path
 from os import getcwd
 
-from importlib_metadata import files
-
 class Options:
     def __init__(self, files, output_path, image_type, invert, vertical):
         self.files = files
@@ -32,11 +30,11 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Converting PDF files to an image')
 
     parser.add_argument('-f', '--files', dest='files', action='append', nargs='+', 
-        required=True, help='Path to the PDF file to be converted')
+        required=True, help='Path to the PDF files to be converted')
     parser.add_argument('-o', '--output-path', dest='output_dest', nargs='?', default=path.abspath(getcwd()),
         help='Output result path (default: current working directory)')
-    parser.add_argument('--jpeg', dest='file_type', action='store_true',
-        help='Output file type (default: png)')
+    parser.add_argument('-j', '--jpeg', dest='file_type', action='store_true',
+        help='Export as JPEG instead (default: png)')
     parser.add_argument('-i', '--invert-colors', dest='invert', action='store_true',
         help='Output image will have inverted colors (default: False)')
     parser.add_argument('-v', '--vertical', dest='vertical', action='store_true',

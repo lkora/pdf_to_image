@@ -5,9 +5,9 @@ import warnings
 warnings.simplefilter(action="ignore", category=FutureWarning)
 import numpy as np
 
-from create_folder import create_dir
+from bin.create_folder import create_dir
 from pdf2image import convert_from_path
-from args import parse_arguments
+from bin.args import parse_arguments
 
 
 def print_line():
